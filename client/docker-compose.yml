@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  app:
+    image: adapt-docker-dev
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./components:/app/components
+      - ./pages:/app/pages
+      - ./public:/app/public
+      - ./styles:/app/styles

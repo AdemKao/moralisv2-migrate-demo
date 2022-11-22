@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ant-input{
+  background-color: #49474700;
+  /* opacity: 0.2; */
+  color:#cecbcb
+  
+}
+.ant-input-suffix{
+  color:#cecbcb
+  
+}
+.ant-input::placeholder{
+  background-color: #49474700;
+  /* background-color: #494747b3; */
+
+  color: #cecbcb;
+}
+.ant-input-clear-icon{
+  color: #cecbcb !important;
+  font-size:14px !important
+
+}
+.anticon-close-circle{
+  vertical-align: baseline;
+}
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
