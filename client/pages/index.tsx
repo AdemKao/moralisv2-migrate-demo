@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import React from "react";
-import Landing from "../src/components/modules/Landing";
+import Landing from "../app/components/modules/Landing";
 import { getSession } from "next-auth/react";
 
 function index() {

@@ -1,5 +1,5 @@
 import React from "react";
-import Armr from "../src/components/modules/Armr";
+import Armr from "../app/components/modules/Armr";
 
 function armr() {
   return <Armr />;

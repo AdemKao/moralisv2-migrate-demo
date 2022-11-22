@@ -1,6 +1,6 @@
 import { Sign } from "crypto";
 import React from "react";
-import SignIn from "../src/components/modules/SignIn";
+import SignIn from "../app/components/modules/SignIn";
 import { getSession } from "next-auth/react";
 import { GetServerSideProps } from "next";
 

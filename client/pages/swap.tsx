@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import React from "react";
-import Swap from "../src/components/modules/Swap";
+import Swap from "../app/components/modules/Swap";
 import { getSession } from "next-auth/react";
 
 function swap() {

@@ -1,10 +1,10 @@
-FROM node:16-alpine
+FROM node:18-alpine
 
 WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn upgrade
+# RUN yarn upgrade
 RUN yarn
 
 COPY next.config.js ./next.config.js
