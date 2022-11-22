@@ -4,11 +4,12 @@ WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install
+RUN yarn upgrade
+RUN yarn
 
 COPY next.config.js ./next.config.js
 
-COPY components ./components
+COPY src ./src
 COPY pages ./pages
 COPY public ./public
 COPY styles ./styles

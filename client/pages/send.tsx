@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import React from "react";
-import Send from "../app/components/modules/Send";
+import Send from "../src/components/modules/Send";
 import { getSession } from "next-auth/react";
 
 function send() {
