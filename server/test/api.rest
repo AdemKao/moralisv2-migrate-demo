@@ -1,0 +1,63 @@
+Get https://localhost:1337/todoitems 
+Content-Type: application/json
+
+###
+
+POST http://localhost:1337/api/auth/request-message 
+Content-Type: application/json
+
+{
+"address": "0xa317BD3c482cd1060A847Fc7b5b72bD34b792377", "chain": 56, "networkType": "evm"
+}
+
+
+
+### Moralis-v1 request message
+POST http://localhost:1337/api/auth/request-message
+Content-Type: application/json
+
+{"address":"0xf773c789631Bc3F94d1daF9C1eA5b9fC263B9E2E","chain":56,"networkType":"evm"}
+
+### Moralis-v1 request auth
+
+POST http://localhost:1337/server/users
+Content-Type: application/json
+X-Parse-Application-Id: 'K7QAo4atMIFFxARmiHHOqFA4jgFA202hPQj20YZ8'
+
+{"authData":
+    {
+        "authData": "moralisEth",
+        {
+            "id":"0xf773c789631bc3f94d1daf9c1ea5b9fc263b9e2e",
+            "signature":"0xb3d9679d634f1dcf9439e422a455cf9e8a884fabb47b6c2b12d02141bd4383e014b3c97cbc1b1db4596909fe2a0e6c50c791ab4fddd8b16e31cfdf898514f7521b",
+            "message":"adapt.app wants you to sign in with your Ethereum …OzSrSnn3dH8eQ\nIssued At: 2022-11-25T13:03:28.296Z",
+            "networkType":56
+        }
+    },
+}
+
+### sign message
+
+POST http://localhost:1337/auth/sign-message
+Content-Type: application/json
+
+{"authData":
+    {
+        "authData": "moralisEth",
+        {
+            "id":"0xf773c789631bc3f94d1daf9c1ea5b9fc263b9e2e",
+            "signature":"0xb3d9679d634f1dcf9439e422a455cf9e8a884fabb47b6c2b12d02141bd4383e014b3c97cbc1b1db4596909fe2a0e6c50c791ab4fddd8b16e31cfdf898514f7521b",
+            "message":"adapt.app wants you to sign in with your Ethereum …OzSrSnn3dH8eQ\nIssued At: 2022-11-25T13:03:28.296Z",
+            "networkType":56
+        }
+    },
+}
+
+
+### find user
+
+POST http://localhost:1337/server/classes/_User
+
+{"where":{},"_method":"GET","_ApplicationId":"K7QAo4atMIFFxARmiHHOqFA4jgFA202hPQj20YZ8","_ClientVersion":"js1.12.0","_InstallationId":"2175cc8b-a2d6-4526-a826-030882451e14","_SessionToken"
+: 
+"r:f37c2290987741a5da2bfc788a171c7d"}

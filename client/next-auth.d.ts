@@ -1,5 +1,5 @@
 import "next-auth";
-import { TUserData } from "./pages/api/v1/auth/[...nextauth]";
+import { TUserData } from "./pages/api/auth/[...nextauth]";
 
 declare module "next-auth" {
   interface User extends TUserData {}

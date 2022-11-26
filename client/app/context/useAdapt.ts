@@ -3,6 +3,7 @@ import { AdaptContextType } from "../types/types";
 
 let defaultContext: AdaptContextType = {
   onConnect: null,
+  onSignMessage: null,
   onDisConnect: null,
 };
 const AdaptContext = createContext<AdaptContextType>(defaultContext);

@@ -3,6 +3,9 @@ import http from "http";
 import cors from "cors";
 import config from "./config";
 import { parseServer } from "./parseServer";
+import { apiRouter } from "./apiRouter";
+//@ts-ignore
+import { errorHandler } from "./middlewares/errorHandler";
 
 import ngrok from "ngrok";
 // @ts-ignore
@@ -10,11 +13,17 @@ import ngrok from "ngrok";
 import ParseServer from "parse-server";
 import { streamsSync } from "@moralisweb3/parse-server";
 import { parseDashboard } from "./parseDashboard";
+import { authRouter } from "./auth/authRouter";
+import Moralis from "moralis";
 
 export const app = express();
+Moralis.start({
+  apiKey: config.MORALIS_API_KEY,
+});
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+// app.use(express.json());
+app.use(express.json({ limit: "50mb" }));
 
 app.use(cors());
 
@@ -22,6 +31,11 @@ app.use(cors());
 //   res.send("hello");
 // });
 app.use("/dashboard", parseDashboard);
+app.use("/api", apiRouter);
+// app.use("/auth", authRouter);
+app.use(errorHandler);
+app.use(`/server`, parseServer.app);
+// app.use(`/server`, parseServer);
 
 if (config.USE_STREAMS) {
   app.use(
@@ -31,8 +45,6 @@ if (config.USE_STREAMS) {
     })
   );
 }
-
-app.use(`/server`, parseServer.app);
 
 const httpServer = http.createServer(app);
 

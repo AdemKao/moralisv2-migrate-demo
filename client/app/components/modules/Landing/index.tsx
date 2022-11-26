@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Connector,
   useAccount,
@@ -11,9 +11,10 @@ import { InjectedConnector } from "wagmi/connectors/injected";
 
 import Button from "../../elements/buttons/Button";
 import Image from "next/image";
-import apiPost from "../../../utils/apiPost";
+import apiPost from "../../../utils/apiHandler";
 
 import { useRouter } from "next/router";
+import AdaptContext from "../../../context/useAdapt";
 
 function index() {
   const { data, status } = useSession();
@@ -26,10 +27,8 @@ function index() {
 
   console.log("Landing", data, status);
 
-  async function handleLogout() {
-    await disconnectAsync();
-    signOut({ callbackUrl: "/" });
-  }
+  const { onConnect, onDisConnect } = useContext(AdaptContext);
+
   async function handleAuth(connector?: Connector, disabled?: boolean) {
     if (disabled) {
       alert("Setup it first in the Authentication.tsx");
@@ -79,7 +78,7 @@ function index() {
         ＡＤＡＰＴ
       </h1>
 
-      <div className="w-[100%] flex justify-between px-[2%] max-w-[550px]">
+      <div className="w-[100%] flex justify-between sm:px-[5%] px-1  max-w-[550px]">
         <Button onClick={() => push("/signup")}>NEW USER</Button>
         <Button
           onClick={() => {

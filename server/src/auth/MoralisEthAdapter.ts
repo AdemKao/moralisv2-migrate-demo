@@ -5,6 +5,9 @@ import Moralis from "moralis";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function validateAuthData(authData: any) {
   const { signature, data } = authData;
+  console.log("MoralisEth");
+  console.log("==========================");
+  console.log("authData", signature, data);
 
   return Moralis.Auth.verify({
     message: data,
@@ -12,6 +15,7 @@ function validateAuthData(authData: any) {
     networkType: "evm",
   })
     .then((result) => {
+      console.log("result", result);
       const authenticated = result.toJSON();
 
       authData.chainId = result.result.chain.decimal;
@@ -27,7 +31,8 @@ function validateAuthData(authData: any) {
       authData.moralisProfileId = authenticated.profileId;
     })
 
-    .catch(() => {
+    .catch((e) => {
+      console.log("error", e);
       // @ts-ignore (see note at top of file)
       throw new Parse.Error(
         // @ts-ignore (see note at top of file)

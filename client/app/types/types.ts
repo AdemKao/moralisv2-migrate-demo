@@ -10,9 +10,16 @@ type Web3ContextType = {
   avatar: string | undefined;
 };
 
+export interface walletConnectOption {
+  account: string;
+  chain: any;
+  message: string;
+}
 type AdaptContextType = {
-  onConnect: (() => {}) | null;
+  onWalletConnect: () => Promise<walletConnectOption>;
+  onMoralisAuth: (({}: walletConnectOption) => {}) | null;
   onDisConnect: (() => {}) | null;
+  onSignMessage: (() => {}) | null;
 };
 
 export type { Web3ContextType, AdaptContextType };

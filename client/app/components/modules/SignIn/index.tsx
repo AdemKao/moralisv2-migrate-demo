@@ -12,7 +12,7 @@ import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
-import apiPost from "../../../utils/apiPost";
+import apiPost from "../../../utils/apiHandler";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 

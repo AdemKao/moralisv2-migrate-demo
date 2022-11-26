@@ -10,7 +10,10 @@ function BulletGroup({ ...props }) {
     let elements = [];
     for (let i = 1; i <= props.counts; i++) {
       elements.push(
-        <span className={`${basic} ${i == props.step ? focus : normal}`} />
+        <span
+          key={i}
+          className={`${basic} ${i == props.step ? focus : normal}`}
+        />
       );
     }
     return elements;

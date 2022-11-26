@@ -1,8 +1,8 @@
 import React from "react";
-import Swap from "./Swap";
+import SwitchChain from "./SwitchChain";
 
 function index() {
-  return <Swap />;
+  return <SwitchChain />;
 }
 
 export default index;
